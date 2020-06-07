@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Store, Action } from '@ngrx/store';
+import { Store } from '@ngrx/store';
+import { IncrementarAction, DecrementarAction } from './components/contador/contador.actions';
 
 @Component({
   selector: 'app-root',
@@ -12,46 +13,36 @@ export class AppComponent {
   public contador: number;
 
   constructor( private store: Store<AppState>){
-    //this.contador = 10; 
 
     // Decimos que cualquier cambio que pase en el state, lo imprima en la consola
     this.store.subscribe(state =>{
 
       // Aquí nos suscribimos a todos los cambios que haya en el state y se reflejan en pantalla 
       this.contador = state.contador; 
-      //console.log(state);
     });
 
   }
 
   public incrementar(){
 
-    // Este tipo debe de ser igual al nombre que está en el reducer 
-    const accion: Action = {
-      type: 'INCREMENTAR'
-    };
+    // Declaramos el tipo de acción que queremos utilizar 
+    const accion = new IncrementarAction();
 
     // La accion siempre la debemos de mandar al store con el dispatch; aquí se dice que disparamos la acción con un dispatch
     this.store.dispatch(accion);
-
-    //this.contador++;
 
   }
 
   public decrementar(){
 
-    const accion: Action = {
-      type: 'DECREMENTAR'
-    };
-
+    const accion = new DecrementarAction();
     this.store.dispatch(accion);
-
-    //this.contador--; 
 
   }
 
 }
 
+// Definimos el estado de la aplicación 
 interface AppState{
   contador: number; 
 }
