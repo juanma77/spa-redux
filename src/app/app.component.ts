@@ -15,10 +15,10 @@ export class AppComponent {
   constructor( private store: Store<AppState>){
 
     // Decimos que cualquier cambio que pase en el state, lo imprima en la consola
-    this.store.subscribe(state =>{
+    this.store.select('contador').subscribe(contador =>{
 
       // Aquí nos suscribimos a todos los cambios que haya en el state y se reflejan en pantalla 
-      this.contador = state.contador; 
+      this.contador = contador; 
     });
 
   }
