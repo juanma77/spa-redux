@@ -33,4 +33,11 @@ export class HijoComponent implements OnInit {
 
   }
 
+  public resetNieto(nuevoContador){
+    this.contador = nuevoContador; 
+
+    // Siempre debemos emitir el evento con la propiedad que estamos mandando como Output
+    this.cambioContador.emit(this.contador);
+  }
+
 }
