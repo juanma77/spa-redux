@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../../app.reducer';
 
 @Component({
   selector: 'app-hijo',
@@ -13,11 +15,19 @@ export class HijoComponent implements OnInit {
   // Mandamos desde el componente hijo hijo.component la propiedad cambioContador con un Event Emitter hacia el componente padre app.component
   // @Output() cambioContador = new EventEmitter<number>();
 
-  constructor() { 
+  constructor(private store: Store<AppState>) { 
 
   }
 
   ngOnInit() {
+
+    // De esta manera obtenemos que la variable contador de este componente sea igual a la variable contador que tenemos en el estado  
+    this.store.select('contador').subscribe(contador =>{
+      this.contador = contador;
+      console.log(contador);
+    })
+
+
   }
 
   public multiplicar(){
