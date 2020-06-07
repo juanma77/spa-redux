@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-hijo',
@@ -8,13 +8,14 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class HijoComponent implements OnInit {
 
   // Recibimos el contador desde el componente padre app.component
-  @Input() contador: number;
-
+  public contador: number;
 
   // Mandamos desde el componente hijo hijo.component la propiedad cambioContador con un Event Emitter hacia el componente padre app.component
-  @Output() cambioContador = new EventEmitter<number>();
+  // @Output() cambioContador = new EventEmitter<number>();
 
-  constructor() { }
+  constructor() { 
+
+  }
 
   ngOnInit() {
   }
@@ -23,13 +24,13 @@ export class HijoComponent implements OnInit {
     this.contador *=2;
 
     // Siempre debemos emitir el evento con la propiedad que estamos mandando como Output
-    this.cambioContador.emit(this.contador); 
+    // this.cambioContador.emit(this.contador); 
   }
 
   public dividir(){
     this.contador /=2;
 
-    this.cambioContador.emit(this.contador); 
+    // this.cambioContador.emit(this.contador); 
 
   }
 
@@ -37,7 +38,7 @@ export class HijoComponent implements OnInit {
     this.contador = nuevoContador; 
 
     // Siempre debemos emitir el evento con la propiedad que estamos mandando como Output
-    this.cambioContador.emit(this.contador);
+    // this.cambioContador.emit(this.contador);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { IncrementarAction, DecrementarAction } from './components/contador/contador.actions';
+import { AppState } from './app.reducer';
 
 @Component({
   selector: 'app-root',
@@ -40,9 +41,4 @@ export class AppComponent {
 
   }
 
-}
-
-// Definimos el estado de la aplicación 
-interface AppState{
-  contador: number; 
 }
