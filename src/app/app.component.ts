@@ -9,7 +9,7 @@ export class AppComponent {
   
   public contador: number;
 
-  constructor(){
+  constructor(  ){
     this.contador = 10; 
   }
 

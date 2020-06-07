@@ -5,6 +5,11 @@ import { AppComponent } from './app.component';
 import { HijoComponent } from './components/contador/hijo/hijo.component';
 import { NietoComponent } from './components/contador/nieto/nieto.component';
 
+// Ngrx
+import { StoreModule } from '@ngrx/store';
+import { contadorReducer } from './components/contador/contador.reducer';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -12,7 +17,9 @@ import { NietoComponent } from './components/contador/nieto/nieto.component';
     NietoComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    // El nombre del store es "contador"
+    StoreModule.forRoot({ contador: contadorReducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
