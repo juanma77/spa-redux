@@ -4,6 +4,7 @@ import { Action } from '@ngrx/store';
 export const INCREMENTAR = 'INCREMENTAR';
 export const DECREMENTAR = 'DECREMENTAR';
 export const MULTIPLICAR = 'MULTIPLICAR';
+export const DIVIDIR = 'DIVIDIR';
 
 export class IncrementarAction implements Action {
     readonly type = INCREMENTAR; 
@@ -23,5 +24,14 @@ export class MultiplicarAction implements Action {
 
 }
 
+export class DividirAction implements Action {
+   
+    readonly type = DIVIDIR; 
+
+    constructor( public payload: number ){
+
+    }
+}
+
 // Definimos el tipo de acción que acepta el reducer
-export type ACTION_TYPE = IncrementarAction | DecrementarAction | MultiplicarAction; 
+export type ACTION_TYPE = IncrementarAction | DecrementarAction | MultiplicarAction | DividirAction; 

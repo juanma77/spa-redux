@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../app.reducer';
+import { MultiplicarAction, DividirAction } from '../contador.actions';
 
 @Component({
   selector: 'app-hijo',
@@ -31,14 +32,26 @@ export class HijoComponent implements OnInit {
   }
 
   public multiplicar(){
-    this.contador *=2;
+
+    // Recibimos el número por el cual multiplicaremos el valor del contador 
+    const accion = new MultiplicarAction(5);
+
+    // Hacemos dispatch de la acción al store 
+    this.store.dispatch(accion);
+
+    // this.contador *=2;
 
     // Siempre debemos emitir el evento con la propiedad que estamos mandando como Output
     // this.cambioContador.emit(this.contador); 
   }
 
   public dividir(){
-    this.contador /=2;
+
+    const accion = new DividirAction(5);
+    this.store.dispatch(accion);
+
+
+    // this.contador /=2;
 
     // this.cambioContador.emit(this.contador); 
 
