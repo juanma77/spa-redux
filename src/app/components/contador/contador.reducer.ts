@@ -1,5 +1,8 @@
 import { INCREMENTAR, DECREMENTAR, ACTION_TYPE, MULTIPLICAR, DIVIDIR, RESET } from './contador.actions';
 
+// Para optimizar los import podemos usar el "*"; y usar "fromContador." antes de INCREMENTAR, DECREMENTAR, MULTIPLICAR, etc. y de ACTION_TYPE
+// import * as fromContador from './contador.actions';
+
 // Recibimos un estado actual y una acción que dirá que algo ha ocurrido para modificarlo
 export function contadorReducer(state: number = 10, action: ACTION_TYPE){
  
