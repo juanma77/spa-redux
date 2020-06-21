@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../../app.reducer';
-import { MultiplicarAction, DividirAction } from '../contador.actions';
+import { MULTIPLICAR, DIVIDIR } from '../contador.actions';
 
 @Component({
   selector: 'app-hijo',
@@ -28,11 +28,12 @@ export class HijoComponent implements OnInit {
       console.log(contador);
     })
 
-
   }
 
   public multiplicar(){
 
+
+    /*
     // Recibimos el número por el cual multiplicaremos el valor del contador 
     const accion = new MultiplicarAction(5);
 
@@ -42,26 +43,41 @@ export class HijoComponent implements OnInit {
     // this.contador *=2;
 
     // Siempre debemos emitir el evento con la propiedad que estamos mandando como Output
-    // this.cambioContador.emit(this.contador); 
+    // this.cambioContador.emit(this.contador); */
+
+
+    // Esto es para hacer lo mismo de arriba pero usando el estándar de la librería de ngrx
+    
+    this.store.dispatch( MULTIPLICAR( { numero: 2 } ) );
+
+
   }
 
   public dividir(){
 
-    const accion = new DividirAction(5);
+    /*const accion = new DividirAction(5);
     this.store.dispatch(accion);
 
 
     // this.contador /=2;
 
-    // this.cambioContador.emit(this.contador); 
+    // this.cambioContador.emit(this.contador); */
+
+
+    // Esto es para hacer lo mismo de arriba pero usando el estándar de la librería de ngrx
+    
+    this.store.dispatch( DIVIDIR( { numero: 2 } ) );
+
 
   }
 
   public resetNieto(nuevoContador){
+
+    /*
     this.contador = nuevoContador; 
 
     // Siempre debemos emitir el evento con la propiedad que estamos mandando como Output
-    // this.cambioContador.emit(this.contador);
+    // this.cambioContador.emit(this.contador); */
   }
 
 }

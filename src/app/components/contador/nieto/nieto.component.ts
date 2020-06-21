@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppState } from '../../../app.reducer';
 import { Store } from '@ngrx/store';
-import { ResetAction } from '../contador.actions';
+import { RESET } from '../contador.actions';
 
 @Component({
   selector: 'app-nieto',
@@ -31,13 +31,19 @@ export class NietoComponent implements OnInit {
 
   public reset(){
 
+    /*
     const accion = new ResetAction();
     this.store.dispatch(accion);
 
     // this.contador = 0; 
 
     // Siempre debemos emitir luego de poner el Otput
-    // this.contadorCambio.emit(0); 
+    // this.contadorCambio.emit(0); */ 
+
+    
+    // Esto es para hacer lo mismo de arriba pero usando el estándar de la librería ngrx 
+    this.store.dispatch(RESET()); 
+
   }
 
 }
